@@ -1,6 +1,7 @@
 import { chromium } from 'playwright';
 import { IApiDataField } from '../../../common/types';
 
+// The super class for all new domains
 export class UrlAddress  {
   public urlAddress: string;
   public html: string = "";
@@ -11,14 +12,15 @@ export class UrlAddress  {
     this.urlAddress = url;
   };
 
+  // Async constructor for handling async function calls
   public async asyncConstructor(): Promise<this> {
     const dataObj = await this.useHeadlessBrowser(this.urlAddress);
     this.html = dataObj.html;
     return this;
   };
 
+  // Initialize the headless browser to fetch DOM data
   async useHeadlessBrowser(urlAddress: string) {
-    console.log("Using Generic !!!!!!!!!!!!!!!!!!!!!")
     const browser = await chromium.launch();  // Or 'firefox' or 'webkit'.
     const page = await browser.newPage();
     await page.goto(urlAddress);
@@ -29,6 +31,7 @@ export class UrlAddress  {
     // Get your html after the JavaScript has done some things
     const pageObj = await page.evaluate(() => {
 
+    // Disable all anchor tags
     const anchorTags = document.getElementsByTagName("a");
     for(var tag of anchorTags) {
       tag.style.pointerEvents="none";

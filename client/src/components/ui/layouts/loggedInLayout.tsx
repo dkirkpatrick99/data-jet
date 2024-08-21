@@ -7,7 +7,6 @@ function LoggedInLayout() {
       <div className="bg-white text-black pb-24 mx-4 ">
         <div className="m-auto max-w-[1680px]">
           <HomeHeader />
-          
           <Outlet/>
         </div>
       </div>

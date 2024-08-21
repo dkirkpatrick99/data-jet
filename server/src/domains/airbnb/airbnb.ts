@@ -25,6 +25,7 @@ export class AirBnB extends UrlAddress {
     this.urlAddress = url;
   };
 
+  // Async constructor for handling async function calls
   public async asyncConstructor(): Promise<this> {
     const dataObj = await this.useHeadlessBrowser(this.urlAddress);
     this.html = dataObj.html;
@@ -36,6 +37,7 @@ export class AirBnB extends UrlAddress {
     return this;
   };
 
+  // Set up data sections 
   public getSections = (theObject: Record<any, any>[]): IApiDataField[] => {
     let result: IApiDataField[] = [];
 
@@ -51,8 +53,8 @@ export class AirBnB extends UrlAddress {
     return result;
   };
 
+  // Find preset AirBnBSections by key name
   private getObject = (theObject: Record<any, any>, result: Set<any> = new Set(), dataAtKeyName: string, keyValsToCheck: Record<string, any> | null, keyword: string | null): Set<any> => {
-
     if (theObject instanceof Array) {
       for (var i = 0; i < theObject.length; i++) {
         result = this.getObject(theObject[i], result, dataAtKeyName, keyValsToCheck, keyword);
@@ -86,36 +88,39 @@ export class AirBnB extends UrlAddress {
     return result;
   };
 
-async useHeadlessBrowser(urlAddress: string) {
-  console.log("Using AirBnB !!!!!!!!!!!!!!!!!!!!!")
-  const browser = await chromium.launch();  // Or 'firefox' or 'webkit'.
-  const page = await browser.newPage();
-  await page.goto(urlAddress);
+  // Initialize the headless browser to fetch DOM data
+  async useHeadlessBrowser(urlAddress: string) {
+    const browser = await chromium.launch();  // Or 'firefox' or 'webkit'.
+    const page = await browser.newPage();
+    await page.goto(urlAddress);
 
-  // Wait for your initial dynamic JavaScript code to finish... typically this involves scripts being fetched and then those scripts doing something like fetching some data and rendering it. You would expect right after fetch the render would happen, so networkidle is usually enough 
-  await page.waitForLoadState("networkidle");
+    // Wait for your initial dynamic JavaScript code to finish... typically this involves scripts being fetched and then those scripts doing something like fetching some data and rendering it. You would expect right after fetch the render would happen, so networkidle is usually enough 
+    await page.waitForLoadState("networkidle");
 
-  // Get your html after the JavaScript has done some things
-  const pageObj = await page.evaluate(() => {
+    // Get your html after the JavaScript has done some things
+    const pageObj = await page.evaluate(() => {
 
-    // Runs inside the actual page
-    const foundEle = document.querySelector('div[data-testid="main-cookies-banner-container"]');
-    if(foundEle) foundEle.remove();
+      // Runs inside the actual page
+      // Remove known cookies banner
+      const foundEle = document.querySelector('div[data-testid="main-cookies-banner-container"]');
+      if(foundEle) foundEle.remove();
 
-    const dataObj = document.querySelector('script[id="data-deferred-state-0"]');
-    if(dataObj) dataObj.remove();
+      // Get and remove the api data from DOM script
+      const dataObj = document.querySelector('script[id="data-deferred-state-0"]');
+      if(dataObj) dataObj.remove();
 
-    const anchorTags = document.getElementsByTagName("a");
-    for(var tag of anchorTags) {
-      tag.style.pointerEvents="none";
-      tag.style.cursor="default";
-    }
+      // Disable all anchor tags
+      const anchorTags = document.getElementsByTagName("a");
+      for(var tag of anchorTags) {
+        tag.style.pointerEvents="none";
+        tag.style.cursor="default";
+      }
 
-    return {html: document.documentElement.outerHTML, data: dataObj?.innerHTML || "{}"}
-  });
+      return {html: document.documentElement.outerHTML, data: dataObj?.innerHTML || "{}"}
+    });
 
-  await browser.close();
+    await browser.close();
 
-  return pageObj;
-};
+    return pageObj;
+  };
 }

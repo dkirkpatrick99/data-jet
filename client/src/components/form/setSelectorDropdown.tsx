@@ -50,20 +50,21 @@ const StyledMenu = styled((props: MenuProps) => (
 interface ISetSelectorDropdown {
   apiData: IApiDataField[];
   selectedField: string;
-  setSelectedField: React.Dispatch<React.SetStateAction<string>>;
+  setSelectedDataId: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export default function SetSelectorDropdown({ apiData, selectedField, setSelectedField }: ISetSelectorDropdown) {
+export default function SetSelectorDropdown({ apiData, selectedField, setSelectedDataId }: ISetSelectorDropdown) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [open, setOpen] = React.useState(false);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setOpen(!open)
+    setOpen(!open);
     setAnchorEl(event.currentTarget);
   };
 
-  const handleSelection = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-    setSelectedField(e.currentTarget.textContent || "");
+  // Set the selected data id
+  const handleSelection = (_id: string) => {
+    setSelectedDataId(_id);
     setOpen(!open);
   };
 
@@ -79,7 +80,7 @@ export default function SetSelectorDropdown({ apiData, selectedField, setSelecte
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
       >
-        {selectedField ? selectedField : "Field"}
+        {selectedField ? apiData.find((data) => data._id === selectedField)?.fieldName : "Field"}
       </Button>
       <StyledMenu
         id="demo-customized-menu"
@@ -92,7 +93,7 @@ export default function SetSelectorDropdown({ apiData, selectedField, setSelecte
       >
 
         {apiData.map((data) => (
-          <MenuItem onClick={handleSelection}>
+          <MenuItem key={data._id} onClick={() => handleSelection(data._id)}>
             {data.fieldName}
           </MenuItem>
         ))}

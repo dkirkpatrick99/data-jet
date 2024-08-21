@@ -13,10 +13,11 @@ function SetSelectorForm() {
   const { apiData, setApiData } = DataState;
   const { selector } = SelectedSelectorState;
   
-  const [selectedField, setSelectedField] = useState("");
+  const [selectedDataId, setSelectedDataId] = useState("");
 
+  // Update the css selector value for the data object
   const updateSelector = () => {
-    setApiData([...apiData.map((data) => data.fieldName === selectedField ? { ...data, selector: selector } : data)]);
+    setApiData([...apiData.map((data) => data._id === selectedDataId ? { ...data, selector: selector } : data)]);
     setOpenSetSelectorModal(false);
   };
 
@@ -27,7 +28,7 @@ function SetSelectorForm() {
       <SelectorFormField headerText='Choose the field to add this selector to:'>
         <div>
           {apiData.length> 0 
-            ? <SetSelectorDropdown selectedField={selectedField} setSelectedField={setSelectedField} apiData={apiData} />
+            ? <SetSelectorDropdown selectedField={selectedDataId} setSelectedDataId={setSelectedDataId} apiData={apiData} />
             : <SmallError text='Please create a Collection before continuing'/>
           }
         </div>
@@ -43,7 +44,7 @@ function SetSelectorForm() {
 
       <div className='flex w-full justify-around mt-8'>
         <ActionButton action={() => setOpenSetSelectorModal(false)} text='Cancel' btnStyle='bg-blue-200 hover:bg-red-200' />
-        <ActionButton disabled={selectedField.length <= 0} action={() => updateSelector()} text='Save' btnStyle='bg-blue-200 hover:bg-blue-400' />
+        <ActionButton disabled={selectedDataId.length <= 0} action={() => updateSelector()} text='Save' btnStyle='bg-blue-200 hover:bg-blue-400' />
       </div>
 
     </div>

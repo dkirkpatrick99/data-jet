@@ -3,7 +3,6 @@ import { useAppContext } from '../../context/appContext';
 import GenericForm from '../ui/genericForm';
 import { v4 as uuidv4 } from 'uuid';
 
-
 interface IFormValues {
   fieldName: string;
 };
@@ -18,7 +17,8 @@ function CreateSelectorForm() {
   const { setOpenCreateSelectorModal } = createSelectorModal;
   const { setApiData } = DataState;
 
-  const createSelector = (values: IFormValues) => {
+  // Use enpty api data object to create a new data collection
+  const createCollection = (values: IFormValues) => {
     setApiData(prev => [...prev, { ...newApiData, ...values, _id: uuidv4(), website: UrlState.url, useApi: undefined}]);
     setOpenCreateSelectorModal(false);
   };
@@ -26,7 +26,7 @@ function CreateSelectorForm() {
   return (
     <div className="py-6 px-3 w-[400px]">
       <p className='text-2xl text-center font-bold mb-6'>Add a new collection</p>
-      <GenericForm defaultValues={userFormDefaults} onSubmit={createSelector}></GenericForm>
+      <GenericForm defaultValues={userFormDefaults} onSubmit={createCollection}></GenericForm>
     </div>
   )
 };

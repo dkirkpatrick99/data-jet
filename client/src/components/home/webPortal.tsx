@@ -12,6 +12,7 @@ function WebPortal() {
   const { setSelector } = SelectedSelectorState;
   const { url } = UrlState;
 
+  // Add click listener to the embedded html 
   useEffect(() => {
     const contentDoc = document.getElementById('content1');
 
@@ -23,7 +24,7 @@ function WebPortal() {
     }
   }, [LoadingState.isLoading]);
 
-
+  // Open the selector modal to add the selector to a given data object
   const setSelectorHandler = (event: any) => {
     event.stopPropagation()
     setSelector(getCssPath(event.target));

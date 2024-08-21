@@ -14,14 +14,15 @@ interface IDataCard {
 };
 
 function DataCard({_id, name, selector, value, useApi, setApiData }: IDataCard) {
+  // Find and update the api data entry with _id
   const updateApiData = (val: boolean) => {
     setApiData(prev => [...prev.map((data) => data._id === _id ? {...data, useApi: val} : data)]);
   };
 
+  // Find and delete the api data entry with _id
   const deleteApiData = () => {
     setApiData(prev => [...prev.filter((data) => data._id !== _id )]);
   };
-  console.log(_id)
 
   return (
     <div className="mb-4 overflow-y-auto rounded-lg overflow-hidden border-solid border border-gray-500">

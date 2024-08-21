@@ -14,33 +14,33 @@ export function UrlSearchBar() {
 
   const getHtml = async () => {
 
+    // Validate the URL text
     if(!isValidUrl(searchText)) {
       setError("Please enter a valid URl ex: https://www.example.co.uk");
       return;
     }
 
+    // Update state for error and loading flag
     setError("");
     setUrl(searchText);
     setIsLoading(true);
 
+    // Call the proxy action to fetch the website data
     useProxy(searchText)
     .then(function (urlData) {
-        console.log("Data Here: ", urlData);
 
-        const formatData = urlData.data.map((data: any) => {
-          return { ...data, useApi: true }
-        })
+      // Set the api data state
+      setApiData(urlData.data);
 
-        setApiData(formatData);
+      // Apply the html to the document
+      const contentDoc = document.getElementById('content1');
 
-        const contentDoc = document.getElementById('content1');
-
-        if (contentDoc && urlData.html) {
-          contentDoc.innerHTML = urlData.html;
-        }
-      })
-      .catch(_ => setError("Opp! Something went wrong. Try a different URL."))
-      .finally(() => setIsLoading(false));
+      if (contentDoc && urlData.html) {
+        contentDoc.innerHTML = urlData.html;
+      }
+    })
+    .catch(_ => setError("Opp! Something went wrong. Try a different URL."))
+    .finally(() => setIsLoading(false));
   };
 
   return (

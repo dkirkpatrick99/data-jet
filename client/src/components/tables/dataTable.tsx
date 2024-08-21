@@ -29,6 +29,7 @@ export default function ExportCustomToolbar() {
     formatData();
   },[apiData]);
 
+  // Create MUI table data 
   const formatData = () => {
     const columns = [
       { field: "fieldName", headerName: "Name", width: 150 },

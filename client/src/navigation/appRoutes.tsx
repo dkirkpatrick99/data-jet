@@ -5,7 +5,7 @@ import HomeScreen from "../components/homeScreen";
 import RootLayout from "../components/ui/layouts/rootLayout";
 import LoggedInLayout from "../components/ui/layouts/loggedInLayout";
 
-// Nested Routing  via React Router Dom
+// Nested Routing via React Router Dom
 export const appRouter = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />} errorElement={<ErrorPage />} >

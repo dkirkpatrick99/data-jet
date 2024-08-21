@@ -22,7 +22,6 @@ export default function GenericModal({ openModal, setOpenModal, children}: IGene
         closeAfterTransition
         slots={{ backdrop: StyledBackdrop }}
         autoFocus={false} 
-        returnFocusOnClose={false}
       >
         <Fade autoFocus={false} in={openModal}>
           <ModalContent autoFocus={false} sx={style}>

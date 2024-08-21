@@ -13,8 +13,13 @@ exports.getAirBnb = getAirBnb;
 // Get the url data by a given url
 function getAirBnb(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const urlObj = yield req.body.classObj.asyncConstructor();
-        res.send({ html: urlObj.html, data: urlObj.apiValues });
+        try {
+            const urlObj = yield req.body.classObj.asyncConstructor();
+            res.send({ html: urlObj.html, data: urlObj.apiValues });
+        }
+        catch (error) {
+            res.status(401).send("Opps! Something went wrong. Try a different URL.");
+        }
     });
 }
 ;

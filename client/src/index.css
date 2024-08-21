@@ -148,6 +148,10 @@ table {
   border-spacing: 0;
 }
 
+/* input[type="text"] {
+  padding: inherit;
+} */
+
 /* a {
   font-weight: 500;
   color: #646cff;

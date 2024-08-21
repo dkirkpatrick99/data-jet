@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.checkDomain = void 0;
 const knownDomains_1 = require("../domains/knownDomains");
 const urlAddressClass_1 = require("../domains/urlAddressClass");
+// Find search for a known domain from the given URL
 const checkDomain = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     for (var domain of knownDomains_1.knownDomains) {
         if (req.body.urlAddress.includes(domain.sourceUrl)) {
@@ -20,6 +21,7 @@ const checkDomain = (req, res, next) => __awaiter(void 0, void 0, void 0, functi
         }
     }
     ;
+    // No domain found, use generic handler calss
     req.body.classObj = new urlAddressClass_1.UrlAddress(req.body.urlAddress);
     return next();
 });

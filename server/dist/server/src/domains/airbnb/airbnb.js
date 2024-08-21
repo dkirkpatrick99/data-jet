@@ -24,6 +24,7 @@ class AirBnB extends urlAddressClass_1.UrlAddress {
             { dataFieldName: "bathrooms", sectionName: "AVAILABILITY_CALENDAR_INLINE", dataAtKeyName: "title", keyValsToCheck: null, keyword: "bath" },
             { dataFieldName: "beds", sectionName: "AVAILABILITY_CALENDAR_INLINE", dataAtKeyName: "title", keyValsToCheck: null, keyword: "bed" },
         ];
+        // Set up data sections 
         this.getSections = (theObject) => {
             let result = [];
             theObject === null || theObject === void 0 ? void 0 : theObject.forEach((section) => {
@@ -35,6 +36,7 @@ class AirBnB extends urlAddressClass_1.UrlAddress {
             });
             return result;
         };
+        // Find preset AirBnBSections by key name
         this.getObject = (theObject, result = new Set(), dataAtKeyName, keyValsToCheck, keyword) => {
             if (theObject instanceof Array) {
                 for (var i = 0; i < theObject.length; i++) {
@@ -68,21 +70,23 @@ class AirBnB extends urlAddressClass_1.UrlAddress {
         this.urlAddress = url;
     }
     ;
+    // Async constructor for handling async function calls
     asyncConstructor() {
         return __awaiter(this, void 0, void 0, function* () {
-            var _a, _b, _c, _d, _e, _f;
+            var _a, _b, _c, _d, _e, _f, _g;
             const dataObj = yield this.useHeadlessBrowser(this.urlAddress);
             this.html = dataObj.html;
-            if (dataObj === null || dataObj === void 0 ? void 0 : dataObj.data) {
-                this.apiValues = this.getSections((_f = (_e = (_d = (_c = (_b = (_a = JSON.parse(dataObj === null || dataObj === void 0 ? void 0 : dataObj.data)) === null || _a === void 0 ? void 0 : _a.niobeMinimalClientData[0][1]) === null || _b === void 0 ? void 0 : _b.data) === null || _c === void 0 ? void 0 : _c.presentation) === null || _d === void 0 ? void 0 : _d.stayProductDetailPage) === null || _e === void 0 ? void 0 : _e.sections) === null || _f === void 0 ? void 0 : _f.sections);
+            if ((dataObj === null || dataObj === void 0 ? void 0 : dataObj.data) && ((_a = JSON.parse(dataObj === null || dataObj === void 0 ? void 0 : dataObj.data)) === null || _a === void 0 ? void 0 : _a.niobeMinimalClientData)) {
+                console.log("as;ldfkjas;ldkfjas;lkfdja;sldkfjas;ldfk");
+                this.apiValues = this.getSections((_g = (_f = (_e = (_d = (_c = (_b = JSON.parse(dataObj === null || dataObj === void 0 ? void 0 : dataObj.data)) === null || _b === void 0 ? void 0 : _b.niobeMinimalClientData[0][1]) === null || _c === void 0 ? void 0 : _c.data) === null || _d === void 0 ? void 0 : _d.presentation) === null || _e === void 0 ? void 0 : _e.stayProductDetailPage) === null || _f === void 0 ? void 0 : _f.sections) === null || _g === void 0 ? void 0 : _g.sections);
             }
             return this;
         });
     }
     ;
+    // Initialize the headless browser to fetch DOM data
     useHeadlessBrowser(urlAddress) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("Using AirBnB !!!!!!!!!!!!!!!!!!!!!");
             const browser = yield playwright_1.chromium.launch(); // Or 'firefox' or 'webkit'.
             const page = yield browser.newPage();
             yield page.goto(urlAddress);
@@ -91,12 +95,15 @@ class AirBnB extends urlAddressClass_1.UrlAddress {
             // Get your html after the JavaScript has done some things
             const pageObj = yield page.evaluate(() => {
                 // Runs inside the actual page
+                // Remove known cookies banner
                 const foundEle = document.querySelector('div[data-testid="main-cookies-banner-container"]');
                 if (foundEle)
                     foundEle.remove();
+                // Get and remove the api data from DOM script
                 const dataObj = document.querySelector('script[id="data-deferred-state-0"]');
                 if (dataObj)
                     dataObj.remove();
+                // Disable all anchor tags
                 const anchorTags = document.getElementsByTagName("a");
                 for (var tag of anchorTags) {
                     tag.style.pointerEvents = "none";

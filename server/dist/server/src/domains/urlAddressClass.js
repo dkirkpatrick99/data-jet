@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UrlAddress = void 0;
 const playwright_1 = require("playwright");
+// The super class for all new domains
 class UrlAddress {
     constructor(url) {
         this.html = "";
@@ -19,6 +20,7 @@ class UrlAddress {
         this.urlAddress = url;
     }
     ;
+    // Async constructor for handling async function calls
     asyncConstructor() {
         return __awaiter(this, void 0, void 0, function* () {
             const dataObj = yield this.useHeadlessBrowser(this.urlAddress);
@@ -27,9 +29,9 @@ class UrlAddress {
         });
     }
     ;
+    // Initialize the headless browser to fetch DOM data
     useHeadlessBrowser(urlAddress) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("Using Generic !!!!!!!!!!!!!!!!!!!!!");
             const browser = yield playwright_1.chromium.launch(); // Or 'firefox' or 'webkit'.
             const page = yield browser.newPage();
             yield page.goto(urlAddress);
@@ -37,6 +39,12 @@ class UrlAddress {
             yield page.waitForLoadState("networkidle");
             // Get your html after the JavaScript has done some things
             const pageObj = yield page.evaluate(() => {
+                // Disable all anchor tags
+                const anchorTags = document.getElementsByTagName("a");
+                for (var tag of anchorTags) {
+                    tag.style.pointerEvents = "none";
+                    tag.style.cursor = "default";
+                }
                 return { html: document.documentElement.outerHTML, data: "{}" };
             });
             yield browser.close();

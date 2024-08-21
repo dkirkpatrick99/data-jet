@@ -6,7 +6,7 @@ import { useAppContext } from '../../context/appContext';
 
 export function UrlSearchBar() {
   const { DataState, LoadingState, UrlState } = useAppContext();
-  const { setIsLoading } = LoadingState;
+  const { setIsLoading, isLoading } = LoadingState;
   const { setApiData } = DataState;
   const { setUrl } = UrlState;
   const [ error, setError ] = useState("");
@@ -51,7 +51,7 @@ export function UrlSearchBar() {
             <SearchIcon />
           </div>
           <input type="text" value={searchText} onChange={(e) => setSearchText(e.target.value)} className="bg-gray-50 pr-24 border border-gray-300 text-black text-sm rounded-lg block w-full ps-10 p-2.5" placeholder="https://www.airbnb.co.uk/rooms/20669368" />
-          <button onClick={() => getHtml()} className="text-white absolute end-1 bottom-[3px] bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+          <button disabled={isLoading} onClick={() => getHtml()} className="text-white absolute end-1 bottom-[3px] bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
         </div>
 
       </div>

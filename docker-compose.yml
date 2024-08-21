@@ -1,0 +1,73 @@
+name: reeds-app
+
+services: 
+  mongo:
+    image: mongo
+    # ports:
+    #   - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - reeds-app
+
+  api:
+    build: 
+      context: ./server
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: ./server/.env
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    networks:
+      - reeds-app
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongo
+
+  frontend:
+    build: 
+      context: ./client
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    # env_file: ./client/.env
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    networks:
+      - reeds-app
+    ports:
+      - 5173:5173
+    depends_on:
+      - api
+
+
+
+volumes:
+  mongo-data:
+networks:
+  reeds-app:
+    driver: bridge
+
+    # entrypoint: entrypoint
+    # environment:
+    #   - MONGO_URL=mongodb://mongo:27017/mydb
+
+#     container_name: api_c
+
+#     depends_on:
+#       - mongo
+#     volumes:
+#       - ./server:/app
+#       - /app/node_modules
+#     entrypoint: entrypoint
+#     environment:
+#       - MONGO_URL=mongodb://mongo:27017/mydb
+
+
+
+
+
+
+

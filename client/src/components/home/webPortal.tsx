@@ -6,7 +6,7 @@ import EmptyUI from "../ui/emptyUI";
 import LinkOffIcon from '@mui/icons-material/LinkOff';
 
 function WebPortal() {
-  const { ModalState, SelectedSelectorState, UrlState, LoadingState } = useAppContext();
+  const { ModalState, SelectedSelectorState, UrlState } = useAppContext();
   const { setSelectorModal } = ModalState;
   const { setOpenSetSelectorModal } = setSelectorModal;
   const { setSelector } = SelectedSelectorState;
@@ -22,7 +22,7 @@ function WebPortal() {
         contentDoc.removeEventListener('click', setSelectorHandler);
       }
     }
-  }, [LoadingState.isLoading]);
+  }, []);
 
   // Open the selector modal to add the selector to a given data object
   const setSelectorHandler = (event: any) => {
@@ -45,11 +45,9 @@ function WebPortal() {
           </EmptyUI>
         }
 
-        {url.length > 0 && 
-          <div className="h-full w-full overflow-y-scroll">
-            <div id="content1" className="relative" />
-          </div>
-        }
+        <div className="h-full w-full overflow-y-scroll">
+          <div id="content1" className="relative" />
+        </div>
       </div>
 
     </div>

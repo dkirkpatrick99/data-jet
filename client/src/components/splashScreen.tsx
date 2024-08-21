@@ -6,7 +6,7 @@ import SplashHeader from "./header/splashHeader";
 function SplashScreen() {
   return (
     <>
-      <div className="bg-[#010E19] pb-24 px-2 lg:px-0">
+      <div className="bg-[#010E19] pb-24 px-4">
         <div className="m-auto max-w-[1680px]">
           <SplashHeader />
 

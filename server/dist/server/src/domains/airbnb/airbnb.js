@@ -77,7 +77,6 @@ class AirBnB extends urlAddressClass_1.UrlAddress {
             const dataObj = yield this.useHeadlessBrowser(this.urlAddress);
             this.html = dataObj.html;
             if ((dataObj === null || dataObj === void 0 ? void 0 : dataObj.data) && ((_a = JSON.parse(dataObj === null || dataObj === void 0 ? void 0 : dataObj.data)) === null || _a === void 0 ? void 0 : _a.niobeMinimalClientData)) {
-                console.log("as;ldfkjas;ldkfjas;lkfdja;sldkfjas;ldfk");
                 this.apiValues = this.getSections((_g = (_f = (_e = (_d = (_c = (_b = JSON.parse(dataObj === null || dataObj === void 0 ? void 0 : dataObj.data)) === null || _b === void 0 ? void 0 : _b.niobeMinimalClientData[0][1]) === null || _c === void 0 ? void 0 : _c.data) === null || _d === void 0 ? void 0 : _d.presentation) === null || _e === void 0 ? void 0 : _e.stayProductDetailPage) === null || _f === void 0 ? void 0 : _f.sections) === null || _g === void 0 ? void 0 : _g.sections);
             }
             return this;

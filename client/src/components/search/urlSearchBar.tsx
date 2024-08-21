@@ -22,12 +22,12 @@ export function UrlSearchBar() {
 
     // Update state for error and loading flag
     setError("");
-    setUrl(searchText);
     setIsLoading(true);
 
     // Call the proxy action to fetch the website data
     useProxy(searchText)
     .then(function (urlData) {
+      setUrl(searchText);
 
       // Set the api data state
       setApiData(urlData.data);

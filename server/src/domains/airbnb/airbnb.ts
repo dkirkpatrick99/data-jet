@@ -31,7 +31,6 @@ export class AirBnB extends UrlAddress {
     this.html = dataObj.html;
 
     if(dataObj?.data && JSON.parse(dataObj?.data)?.niobeMinimalClientData) {
-      console.log("as;ldfkjas;ldkfjas;lkfdja;sldkfjas;ldfk")
       this.apiValues = this.getSections(JSON.parse(dataObj?.data)?.niobeMinimalClientData[0][1]?.data?.presentation?.stayProductDetailPage?.sections?.sections);
     }
 

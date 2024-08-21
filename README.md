@@ -1,5 +1,5 @@
 <h1 align="center">
-Data Scraper (a MERN stack app)
+Data Jet (a MERN stack app)
 </h1> 
 
 <h3 align="center">

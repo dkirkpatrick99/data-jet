@@ -39,7 +39,7 @@ export function UrlSearchBar() {
           contentDoc.innerHTML = urlData.html;
         }
       })
-      .catch(err => console.log("Error: ", err))
+      .catch(_ => setError("Opp! Something went wrong. Try a different URL."))
       .finally(() => setIsLoading(false));
   };
 

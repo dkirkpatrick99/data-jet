@@ -1,6 +1,8 @@
 import { newApiData } from '../../../../common/types';
 import { useAppContext } from '../../context/appContext';
 import GenericForm from '../ui/genericForm';
+import { v4 as uuidv4 } from 'uuid';
+
 
 interface IFormValues {
   fieldName: string;
@@ -17,7 +19,7 @@ function CreateSelectorForm() {
   const { setApiData } = DataState;
 
   const createSelector = (values: IFormValues) => {
-    setApiData(prev => [...prev, {...newApiData, ...values, website: UrlState.url, useApi: undefined}]);
+    setApiData(prev => [...prev, { ...newApiData, ...values, _id: uuidv4(), website: UrlState.url, useApi: undefined}]);
     setOpenCreateSelectorModal(false);
   };
 

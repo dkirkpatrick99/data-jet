@@ -20,15 +20,15 @@ function HomeScreen() {
         <div className="md:flex justify-between h-full">
           <WebPortal />
 
-          <DataCardList />
+          {/* <DataCardList /> */}
         </div>
 
-        <div className="h-12" />
-        <ExportCustomToolbar/>
+        {/* <div className="h-12" />
+        <ExportCustomToolbar/> */}
 
         <SetSelectorFormModal />
-        <LoadingSpinnerModal />
-        <CreateSelectorFormModal />
+        {/* <LoadingSpinnerModal /> */}
+        {/* <CreateSelectorFormModal /> */}
       </>
     </AppContextProvider>
   )

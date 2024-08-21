@@ -25,7 +25,7 @@ function WebPortal() {
 
 
   const setSelectorHandler = (event: any) => {
-    console.log("CLICK!!!!!!!!!")
+    event.stopPropagation()
     setSelector(getCssPath(event.target));
     setOpenSetSelectorModal(true);
   };
@@ -33,8 +33,11 @@ function WebPortal() {
   return (
     <>
       <div className="flex flex-col md:w-2/3">
-        <SectionHeader text={"Web Portal"} />
-      <div className="h-[800px]  ">
+        <div className="my-2">
+          <SectionHeader text={"Web Portal"} />
+        </div>
+
+        <div className="h-[800px] rounded-lg border-solid border border-gray-500 overflow-hidden">
         {url.length <= 0 &&
           <EmptyUI headText="No URL" subText="Enter a valid website URL to start a collection">
             <LinkOffIcon fontSize="large" />

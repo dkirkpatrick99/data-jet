@@ -16,15 +16,15 @@ function DataCardList() {
   return (
     <>
       <div className="md:w-1/3 px-2 mt-8 md:mt-0">
-        <div className="w-full flex justify-between items-center">
+        <div className="w-full flex mb-2 justify-between items-end">
           <SectionHeader text={"Collection"} />
 
-          <SmallRoundButton action={() => setOpenCreateSelectorModal(true)}>
+          <SmallRoundButton btnStyle="p-0" action={() => setOpenCreateSelectorModal(true)}>
             <AddCircleOutlineIcon className="text-gray-400 hover:text-blue-500" />
           </SmallRoundButton>
         </div>
 
-        <div className="md:h-[800px] md:overflow-y-scroll">
+        <div className="md:h-[800px] md:overflow-y-scroll ">
           {url.length <= 0 && 
             <EmptyUI headText="No URL" subText="Enter a valid website URL to start a collection">
               <LinkOffIcon fontSize="large" />

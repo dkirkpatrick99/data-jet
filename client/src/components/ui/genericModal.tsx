@@ -21,9 +21,11 @@ export default function GenericModal({ openModal, setOpenModal, children}: IGene
         onClose={handleClose}
         closeAfterTransition
         slots={{ backdrop: StyledBackdrop }}
+        autoFocus={false} 
+        returnFocusOnClose={false}
       >
-        <Fade in={openModal}>
-          <ModalContent sx={style}>
+        <Fade autoFocus={false} in={openModal}>
+          <ModalContent autoFocus={false} sx={style}>
             <div className='w-full h-full flex justify-center items-center'>
               {children}
             </div>

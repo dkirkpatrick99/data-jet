@@ -15,12 +15,13 @@ interface IDataCard {
 
 function DataCard({_id, name, selector, value, useApi, setApiData }: IDataCard) {
   const updateApiData = (val: boolean) => {
-    setApiData(prev => [...prev.map((data) => data.fieldName === name ? {...data, useApi: val} : data)]);
+    setApiData(prev => [...prev.map((data) => data._id === _id ? {...data, useApi: val} : data)]);
   };
 
   const deleteApiData = () => {
     setApiData(prev => [...prev.filter((data) => data._id !== _id )]);
   };
+  console.log(_id)
 
   return (
     <div className="mb-4 overflow-y-auto rounded-lg overflow-hidden border-solid border border-gray-500">

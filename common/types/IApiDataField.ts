@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
-
 export interface IApiDataField {
   _id: string;
   fieldName: string;
@@ -10,7 +8,7 @@ export interface IApiDataField {
 };
 
 export const newApiData: IApiDataField = {
-  _id: uuidv4(),
+  _id: "",
   fieldName: "",
   selector: "",
   value: "",

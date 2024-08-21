@@ -19,7 +19,7 @@ function SplashScreen() {
             </div>
           </RadialGradient>
 
-          <div className="h-10" />
+          <div className="h-24" />
 
           <SplashTagLine
             headText="We've got what everyone is looking for"
@@ -28,18 +28,6 @@ function SplashScreen() {
 
           <div className="h-24" />
 
-          {/* <BookSlider books={BooksState.books} search={[Category.Mystery, Category.Horror]} /> */}
-
-          <div className="h-24" />
-
-          <SplashTagLine
-            headText="New adventures around every corner"
-            subText="Thousands of titles by authors from around the world."
-          />
-
-          <div className="h-24" />
-
-          {/* <BookSlider books={BooksState.books} title="Trending now" /> */}
         </div>
       </div>
     </>

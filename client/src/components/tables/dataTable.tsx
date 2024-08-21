@@ -46,11 +46,14 @@ export default function ExportCustomToolbar() {
     });
 
     setTableData({ columns, rows });
-  }
+  };
 
   return (
     <div className='w-full h-fit'>
-      <SectionHeader text={"Data Export Table"} />
+      <div className='mb-2'>
+        <SectionHeader text={"Data Export Table"} />
+      </div>
+
       <DataGrid
         {...tableData}
         loading={loading}

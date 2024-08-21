@@ -17,8 +17,10 @@ I'm a Full-Stack Web Developer with a passion for all sides of the development p
 git clone git@github.com:dkirkpatrick99/data-jet.git
 ```
 - cd into /data-jet/client
+- npm install
 - npm run start
 - cd into /data-jet/server
+- npm install
 - npm run start
 
 - Go to http://localhost:5173/

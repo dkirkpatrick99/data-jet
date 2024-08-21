@@ -84,7 +84,7 @@ export class AirBnB extends UrlAddress {
     }
 
     return result;
-  }
+  };
 
 async useHeadlessBrowser(urlAddress: string) {
   console.log("Using AirBnB !!!!!!!!!!!!!!!!!!!!!")

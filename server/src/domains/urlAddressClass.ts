@@ -29,6 +29,12 @@ export class UrlAddress  {
     // Get your html after the JavaScript has done some things
     const pageObj = await page.evaluate(() => {
 
+    const anchorTags = document.getElementsByTagName("a");
+    for(var tag of anchorTags) {
+      tag.style.pointerEvents="none";
+      tag.style.cursor="default";
+    }
+
       return {html: document.documentElement.outerHTML, data: "{}"};
     });
 

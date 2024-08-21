@@ -1,6 +1,17 @@
 name: data-scraper
 
 services: 
+  common:
+    build: 
+      context: ./common
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./common:/app
+      - /app/node_modules
+    networks:
+      - data-scraper
+
   api:
     build: 
       context: ./server
@@ -13,6 +24,8 @@ services:
       - data-scraper
     ports:
       - 8080:8080
+    # depends_on:
+    #   - common
 
   frontend:
     build: 

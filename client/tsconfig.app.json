@@ -23,5 +23,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["*","../common","src"]
+  "include": ["*","../common","./src"]
 }
+

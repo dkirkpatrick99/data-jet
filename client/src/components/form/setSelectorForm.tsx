@@ -28,7 +28,7 @@ function SetSelectorForm() {
         <div>
           {apiData.length> 0 
             ? <SetSelectorDropdown selectedField={selectedField} setSelectedField={setSelectedField} apiData={apiData} />
-            : <SmallError text='Please create a Selector before continuing'/>
+            : <SmallError text='Please create a Collection before continuing'/>
           }
         </div>
       </SelectorFormField>

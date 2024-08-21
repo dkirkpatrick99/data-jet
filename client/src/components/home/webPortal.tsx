@@ -6,7 +6,7 @@ import EmptyUI from "../ui/emptyUI";
 import LinkOffIcon from '@mui/icons-material/LinkOff';
 
 function WebPortal() {
-  const { ModalState, SelectedSelectorState, UrlState } = useAppContext();
+  const { ModalState, SelectedSelectorState, UrlState, LoadingState } = useAppContext();
   const { setSelectorModal } = ModalState;
   const { setOpenSetSelectorModal } = setSelectorModal;
   const { setSelector } = SelectedSelectorState;
@@ -21,10 +21,11 @@ function WebPortal() {
         contentDoc.removeEventListener('click', setSelectorHandler);
       }
     }
-  }, []);
+  }, [LoadingState.isLoading]);
 
 
   const setSelectorHandler = (event: any) => {
+    console.log("CLICK!!!!!!!!!")
     setSelector(getCssPath(event.target));
     setOpenSetSelectorModal(true);
   };

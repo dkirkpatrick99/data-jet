@@ -4,7 +4,7 @@ import WebIcon from '@mui/icons-material/Web';
 import { useWindowSize } from '../../hooks/useWindowSize';
 
 function Footer() {
-  const [width, height] = useWindowSize();
+  const [width] = useWindowSize();
   
   return (
     <div className="h-48 bg-blue-50 text-black w-full flex items-center justify-around">

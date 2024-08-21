@@ -2,12 +2,15 @@ FROM node:21
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package*.json .
 
 RUN npm ci
 
+RUN npx -y playwright@1.46.1 install --with-deps
+
 COPY . .
 
-CMD ["npm", "run", "dev"]
+EXPOSE 8080
 
-# EXPOSE 8080
+CMD ["npm", "run", "start"]
+

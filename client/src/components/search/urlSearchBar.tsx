@@ -8,7 +8,7 @@ export function UrlSearchBar() {
   const { DataState, LoadingState, UrlState } = useAppContext();
   const { setIsLoading } = LoadingState;
   const { setApiData } = DataState;
-  const { url, setUrl } = UrlState;
+  const { setUrl } = UrlState;
   const [ error, setError ] = useState("");
   const [ searchText, setSearchText ] = useState("");
 

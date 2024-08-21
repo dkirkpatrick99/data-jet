@@ -2,7 +2,6 @@ import RadialGradient from "./ui/radialGradient"
 import SplashIntro from "./splash/splashIntro"
 import SplashTagLine from "./splash/splashTagline"
 import SplashHeader from "./header/splashHeader"
-import { useSelector } from "react-redux"
 
 function SplashScreen() {
   return (

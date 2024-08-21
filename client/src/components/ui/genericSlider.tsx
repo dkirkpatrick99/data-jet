@@ -14,7 +14,7 @@ interface IGenericSlider {
 }
 
 export function GenericSlider({ title, url, children }: IGenericSlider) {
-  const [width, height] = useWindowSize();
+  const [width] = useWindowSize();
 
   return (
     <>

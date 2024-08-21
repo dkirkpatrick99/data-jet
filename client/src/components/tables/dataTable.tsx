@@ -12,7 +12,7 @@ function CustomToolbar() {
       <GridToolbarExport />
     </GridToolbarContainer>
   );
-}
+};
 
 export default function ExportCustomToolbar() {
   const { DataState } = useAppContext();
@@ -60,4 +60,4 @@ export default function ExportCustomToolbar() {
       />
     </div>
   );
-}
+};

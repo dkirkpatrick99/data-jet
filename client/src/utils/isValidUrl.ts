@@ -4,4 +4,4 @@ export function isValidUrl(str: string) {
     } else {
         return false;
     }
-}
+};

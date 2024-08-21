@@ -1,5 +1,5 @@
-import { RouterProvider } from "react-router-dom"
-import { appRouter } from "./navigation/appRoutes"
+import { RouterProvider } from "react-router-dom";
+import { appRouter } from "./navigation/appRoutes";
 
 function App() {
 
@@ -8,6 +8,6 @@ function App() {
       <RouterProvider router={appRouter} />
     </>
   )
-}
+};
 
-export default App
+export default App;

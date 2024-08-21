@@ -50,6 +50,6 @@ function WebPortal() {
     </div>
     </>
   )
-}
+};
 
 export default WebPortal;

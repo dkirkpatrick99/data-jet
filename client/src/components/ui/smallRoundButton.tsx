@@ -2,7 +2,7 @@ interface btn
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   btnStyle?: string,
   action?: () => void
-}
+};
 
 function SmallRoundButton(props: btn) {
 
@@ -13,6 +13,6 @@ function SmallRoundButton(props: btn) {
       </button>
     </>
   )
-}
+};
 
 export default SmallRoundButton;

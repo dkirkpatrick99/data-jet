@@ -14,11 +14,9 @@ function HomeScreen() {
     <AppContextProvider>
       <>
         <div className="h-8" />
-
         <UrlSearchBar />
 
         <div className="h-8" />
-
         <div className="md:flex justify-between h-full">
           <WebPortal />
 

@@ -16,6 +16,6 @@ function LoadingSpinnerModal() {
       </GenericModal>
     </>
   )
-}
+};
 
 export default LoadingSpinnerModal;

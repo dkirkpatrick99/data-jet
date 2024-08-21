@@ -1,6 +1,6 @@
 import { ReactElement, useState } from "react";
 import { AppContext } from "./appContext";
-import { IApiDataField } from "../types/IApiDataField";
+import { IApiDataField } from "../../../common/types";
 
 export function AppContextProvider({children}:{children: ReactElement}) {
   const [apiData, setApiData] = useState<IApiDataField[]>([]);
@@ -9,7 +9,6 @@ export function AppContextProvider({children}:{children: ReactElement}) {
   const [selector, setSelector] = useState("");
   const [url, setUrl] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  // https://www.airbnb.co.uk/rooms/20669368?source_impression_id=p3_1724025382_P3qqjtgdsYVnoY5r
   return (
     <>
       <AppContext.Provider value={{
@@ -44,6 +43,6 @@ export function AppContextProvider({children}:{children: ReactElement}) {
       </AppContext.Provider>
     </>
   )
-}
+};
 
 

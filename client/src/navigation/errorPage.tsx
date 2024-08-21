@@ -10,4 +10,4 @@ export default function ErrorPage() {
       <p>Sorry, an unexpected error has occurred.</p>
     </div>
   );
-}
+};

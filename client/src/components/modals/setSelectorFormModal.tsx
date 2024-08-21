@@ -14,6 +14,6 @@ function SetSelectorFormModal() {
       </GenericModal>
     </>
   )
-}
+};
 
 export default SetSelectorFormModal;

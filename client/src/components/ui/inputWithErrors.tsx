@@ -20,6 +20,6 @@ function InputWithErrors<T extends FieldValues>({ field, errors, fieldName }: II
       />
     </>
   );
-}
+};
 
 export default InputWithErrors;

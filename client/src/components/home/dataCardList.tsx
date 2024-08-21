@@ -47,7 +47,7 @@ function DataCardList() {
       </div>
     </>
   )
-}
+};
 
-export default DataCardList
+export default DataCardList;
 

@@ -1,5 +1,5 @@
 import { chromium } from 'playwright';
-import { IApiDataField } from '../types/IApiDataField';
+import { IApiDataField } from '../../../common/types';
 
 export class UrlAddress  {
   public urlAddress: string;

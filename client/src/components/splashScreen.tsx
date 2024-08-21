@@ -1,7 +1,7 @@
 import RadialGradient from "./ui/radialGradient"
-import SplashIntro from "./splash/splashIntro"
-import SplashTagLine from "./splash/splashTagline"
-import SplashHeader from "./header/splashHeader"
+import SplashIntro from "./splash/splashIntro";
+import SplashTagLine from "./splash/splashTagline";
+import SplashHeader from "./header/splashHeader";
 
 function SplashScreen() {
   return (
@@ -44,6 +44,6 @@ function SplashScreen() {
       </div>
     </>
   )
-}
+};
 
-export default SplashScreen
+export default SplashScreen;

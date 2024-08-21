@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { IApiDataField } from "../types/IApiDataField";
+import { IApiDataField } from "../../../common/types";
 
 export interface IAppContext {
   LoadingState: {

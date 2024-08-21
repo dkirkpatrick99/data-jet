@@ -4,7 +4,7 @@ interface IEmptyUI {
   headText?: string;
   subText?: string;
   children?: ReactElement;
-}
+};
 
 function EmptyUI({headText, subText, children}: IEmptyUI) {
 
@@ -18,6 +18,6 @@ function EmptyUI({headText, subText, children}: IEmptyUI) {
       </div>
     </>
   )
-}
+};
 
 export default EmptyUI;

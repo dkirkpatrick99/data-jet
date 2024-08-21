@@ -6,7 +6,7 @@ import ActionButton from "../ui/actionButton";
 interface IGenericForm<T> {
   defaultValues: T;
   onSubmit: (data: T) => void;
-}
+};
 
 function GenericForm<T extends FieldValues>({ defaultValues, onSubmit }: IGenericForm<T>) {
   const { handleSubmit, control, formState: { errors } } = useForm<T>({
@@ -37,6 +37,6 @@ function GenericForm<T extends FieldValues>({ defaultValues, onSubmit }: IGeneri
 
     </>
   );
-}
+};
 
 export default GenericForm;

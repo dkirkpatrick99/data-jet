@@ -14,6 +14,6 @@ function SmallError({text}: ISmallError) {
       </div>
     </>
   )
-}
+};
 
 export default SmallError;

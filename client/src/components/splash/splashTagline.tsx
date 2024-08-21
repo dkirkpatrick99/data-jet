@@ -10,6 +10,6 @@ function SplashTagLine({ headText, subText }: ISplashTagLine) {
       <p className="text-lg font-medium">{subText}</p>
     </div>
   )
-}
+};
 
 export default SplashTagLine;

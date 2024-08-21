@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Menu, { MenuProps } from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { IApiDataField } from '../../types/IApiDataField';
+import { IApiDataField } from '../../../../common/types';
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu

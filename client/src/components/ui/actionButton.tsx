@@ -3,7 +3,7 @@ interface btn
   text?: string,
   btnStyle?: string,
   action?: () => void
-}
+};
 
 function ActionButton(props: btn) {
   const { text, btnStyle, action, children, ...restProps } = props;
@@ -16,6 +16,6 @@ function ActionButton(props: btn) {
       </button>
     </>
   )
-}
+};
 
 export default ActionButton;

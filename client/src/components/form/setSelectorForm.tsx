@@ -13,7 +13,7 @@ function SetSelectorForm() {
   const { apiData, setApiData } = DataState;
   const { selector } = SelectedSelectorState;
   
-  const [selectedField, setSelectedField] = useState("")
+  const [selectedField, setSelectedField] = useState("");
 
   const updateSelector = () => {
     setApiData([...apiData.map((data) => data.fieldName === selectedField ? { ...data, selector: selector } : data)]);
@@ -48,7 +48,7 @@ function SetSelectorForm() {
 
     </div>
   )
-}
+};
 
 
 

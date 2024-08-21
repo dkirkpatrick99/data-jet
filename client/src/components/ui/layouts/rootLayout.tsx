@@ -5,10 +5,10 @@ function RootLayout() {
 
   return (
     <>
-      <Outlet />
+      <Outlet/>
       <Footer/>
     </>
   )
-}
+};
 
 export default RootLayout;

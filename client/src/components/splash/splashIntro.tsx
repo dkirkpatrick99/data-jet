@@ -13,6 +13,6 @@ function SplashIntro() {
       </Link>
     </div>
   )
-}
+};
 
 export default SplashIntro;

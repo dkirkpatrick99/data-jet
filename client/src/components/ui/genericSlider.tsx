@@ -11,7 +11,7 @@ interface IGenericSlider {
   title?: string;
   children?: JSX.Element[];
   url?: string;
-}
+};
 
 export function GenericSlider({ title, url, children }: IGenericSlider) {
   const [width] = useWindowSize();
@@ -53,6 +53,6 @@ export function GenericSlider({ title, url, children }: IGenericSlider) {
     </>
 
   );
-}
+};
 
 

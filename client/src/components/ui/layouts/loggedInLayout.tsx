@@ -13,6 +13,6 @@ function LoggedInLayout() {
       </div>
     </>
   )
-}
+};
 
 export default LoggedInLayout;

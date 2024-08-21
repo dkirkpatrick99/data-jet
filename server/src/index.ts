@@ -1,6 +1,6 @@
 require('dotenv').config();
-import express from 'express';
-import cors from 'cors';
+import * as express from 'express';
+import * as cors from 'cors';
 import routes from './routes/index';
 import mongoose, { Error } from 'mongoose';
 import { initializeApp } from "firebase-admin/app"

@@ -1,7 +1,7 @@
 import { chromium } from 'playwright';
 import { v4 as uuidv4 } from 'uuid';
 import { UrlAddress } from '../urlAddressClass';
-import { IApiDataField } from '../../types/IApiDataField';
+import { IApiDataField } from '../../../../common/types';
 
 interface IAirBnBSections {
   dataFieldName: string; 

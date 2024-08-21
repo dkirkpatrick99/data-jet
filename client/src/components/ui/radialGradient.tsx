@@ -4,6 +4,6 @@ function RadialGradient(props: any) {
       {props.children}
     </div>
   )
-}
+};
 
 export default RadialGradient;

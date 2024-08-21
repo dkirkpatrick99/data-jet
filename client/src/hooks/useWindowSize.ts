@@ -12,4 +12,4 @@ export function useWindowSize() {
     return () => window.removeEventListener('resize', updateSize);
   }, []);
   return size;
-}
+};

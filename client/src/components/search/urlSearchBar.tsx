@@ -61,6 +61,6 @@ export function UrlSearchBar() {
         }
     </div>
   )
-}
+};
 
 export default UrlSearchBar;

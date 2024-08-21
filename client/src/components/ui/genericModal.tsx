@@ -7,7 +7,7 @@ interface IGenericModal {
   openModal: boolean;
   setOpenModal?: React.Dispatch<React.SetStateAction<boolean>>;
   children: JSX.Element;
-}
+};
 
 export default function GenericModal({ openModal, setOpenModal, children}: IGenericModal) {
   const handleClose = () => setOpenModal && setOpenModal(false);
@@ -32,7 +32,7 @@ export default function GenericModal({ openModal, setOpenModal, children}: IGene
       </Modal>
     </div>
   );
-}
+};
 
 const Backdrop = React.forwardRef<HTMLDivElement, { open?: boolean }>(
   (props, ref) => {

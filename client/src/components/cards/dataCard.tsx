@@ -2,7 +2,7 @@ import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SmallRoundButton from '../ui/smallRoundButton';
 import { getValueFromSelector } from '../../utils/getValueFromSelector';
-import { IApiDataField } from '../../types/IApiDataField';
+import { IApiDataField } from '../../../../common/types';
 
 interface IDataCard {
   setApiData: React.Dispatch<React.SetStateAction<IApiDataField[]>>;

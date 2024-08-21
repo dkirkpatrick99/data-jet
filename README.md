@@ -14,14 +14,13 @@ I'm a Full-Stack Web Developer with a passion for all sides of the development p
 
 - Clone the repo
 ```git
-git clone git@github.com:dkirkpatrick99/reeds-app.git
+git clone git@github.com:dkirkpatrick99/data-jet.git
 ```
-- Open docker
-- cd into /reeds-app
-- Clone the repo
-```git
-docker compose up --build
-```
+- cd into /data-jet/client
+- npm run start
+- cd into /data-jet/server
+- npm run start
+
 - Go to http://localhost:5173/
 
 ## 🎒 Database (todo)

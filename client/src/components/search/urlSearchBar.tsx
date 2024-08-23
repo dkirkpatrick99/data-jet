@@ -43,6 +43,7 @@ export function UrlSearchBar() {
     .finally(() => setIsLoading(false));
   };
 
+  
   return (
     <div>
       <div className="relative group z-20 w-full">
